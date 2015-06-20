@@ -250,5 +250,21 @@ $(function() {
 	})();
 	
 	$sidescroll.init();
-	
+
+	var nav = $('.ss-links');
+	var scrolled = false;
+
+	$(window).scroll(function () {
+
+	    if (3740 < $(window).scrollTop() && !scrolled) {
+	        nav.addClass('visible').animate({ top: '0px' });
+	        scrolled = true;
+	    }
+
+	   if (3740 > $(window).scrollTop() && scrolled) {
+	        nav.removeClass('visible').css('top', '-30px');
+	        scrolled = false;
+	    }
+	});
+		
 });
